@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: sans-serif;
+  font-weight: bold;
 }
 
 body {
@@ -31,12 +32,33 @@ body {
   color: black;
 }
 
+.contain {
+  text-align: center;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .card {
-  padding: 3px;
-  max-width: 200px;
+  padding: 13px;
+  max-width: 220px;
   width: 100%;
   background-color: lightgrey;
   border-radius: 10px;
   box-shadow: 3px 3px 3px black;
-  margin: 1% auto 10px;
+  margin: 15px;
+}
+
+.poke-pic {
+  margin: auto 0;
+  width: 100%;
+  
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.poke-name{
+  margin: 10px;
 }
