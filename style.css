@@ -6,6 +6,7 @@
   font-weight: bold;
 }
 
+
 body {
   background: #59C173;
   background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173);
@@ -44,7 +45,7 @@ body {
   color: black;
 }
 
-.topnav a:focus{
+.topnav a:focus {
   background: #bdc3c7;
   background: linear-gradient(to right, #4f5a64, #bdc3c7);
   color: lightgray;
@@ -72,7 +73,7 @@ input[type=search]:focus {
 .search-icon {
   padding: 5px;
   background: white;
-  border-radius: 5px  0 0 5px;
+  border-radius: 5px 0 0 5px;
   cursor: pointer;
 }
 
@@ -92,16 +93,22 @@ input[type=search]:focus {
   border-radius: 10px;
   box-shadow: 3px 3px 3px black;
   margin: 15px;
+  font-family: 'Teko', sans-serif;
+  font-size: 38px;
+  font-weight: normal;
 }
 
 .poke-pic {
   margin: auto 0;
   width: 100%;
-
   max-width: 180px;
   object-fit: contain;
 }
 
-.poke-name {
-  margin: 10px;
+.poke-type {
+  margin: 5px;
+  color: black;
+  font-size: 23px;
+  font-family: 'Teko', sans-serif;
+  font-weight: normal;
 }
