@@ -7,30 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <img class="pokemon-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
-    alt="Pokemon Logo">
+  <img class="pokemon-logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokemon Logo">
 
   <div class="topnav">
+    <h3>Generations</h3>
     <a onclick="fetchPokemonI()" href="#I">I</a>
-    <a onclick="fetchPokemonII()" href="#II">II</a>
-    <a onclick="fetchPokemonIII()" href="#III">III</a>
-    <a onclick="fetchPokemonIV()" href="#IV">IV</a>
-    <a onclick="fetchPokemonVI()" href="#V">V</a>
-    <a onclick="fetchPokemonVII()" href="#VI">VI</a>
+    <a onclick="fetchPokemonII()"href="#II">II</a>
+    <a onclick="fetchPokemonIII()"href="#III">III</a>
+    <a onclick="fetchPokemonIV()"href="#VI">IV</a>
+    <a onclick="fetchPokemonV()"href="#V">V</a>
+    <a onclick="fetchPokemonVI()"href="#VI">VI</a>
+    <a onclick="fetchPokemonVII()"href="#VII">VII</a>
+    <a onclick="fetchPokemonVIII()"href="#VIII">VIII</a>
+    <div>
+      <span class="search-icon">
+        <i onclick="searchPokemon()" class="fa fa-search icon"></i>
+      </span>
+      <input id="search-camp" type="search" placeholder="Search by id or name">
+    </div>
   </div>
-  
+
   <div class="container">
     <ul data-js="pokedex" class="pokedex"></ul>
-
-    <!-- <img id="pic" class="poke-pic" src="">
-    <h2 id="number" class="poke-id">_ID_</h3>
-    <h2 id="name" class="poke-name">_NAME_</h2>
-    <h3 id="type" class="poke-type">_TYPE_</h3> -->
   </div>
-    
+
   <script src="script.js"></script>
 </body>
 

@@ -1,3 +1,6 @@
+let pokeSearch
+const url = 'https://pokeapi.co/api/v2/pokemon/'
+
 const fetchPokemonI = () => {
   const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
   const pokemonPromises = []
@@ -15,7 +18,7 @@ const fetchPokemonI = () => {
           <li class="card">
           <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
            <h2 class="poke-name">Nº${pokemon.id}. ${pokemon.name}</h2>
-           <p class="poke-type"> ${types.join(' | ')}</p>
+           <p class="poke-type">Type: ${types.join(' | ')}</p>
           </li>`
         return accumulator
       }, '')
@@ -29,11 +32,11 @@ fetchPokemonI()
 
 
 const fetchPokemonII = () => {
-  const getPokemonII = id2 => `https://pokeapi.co/api/v2/pokemon/${id2}/`
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
   const pokemonPromisesII = []
 
   for (let i = 152; i >= 152 && i <= 251; i++) {
-    pokemonPromisesII.push(fetch(getPokemonII(i)).then(response => response.json()))
+    pokemonPromisesII.push(fetch(getPokemon(i)).then(response => response.json()))
   } // multiplos requests
 
   Promise.all(pokemonPromisesII)
@@ -45,7 +48,7 @@ const fetchPokemonII = () => {
           <li class="card">
           <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
            <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
-           <p class="poke-type"> ${types.join(' | ')}</p>
+           <p class="poke-type">Type: ${types.join(' | ')}</p>
           </li>`
         return accumulator
       }, '')
@@ -56,11 +59,11 @@ const fetchPokemonII = () => {
 }
 
 const fetchPokemonIII = () => {
-  const getPokemonIII = id3 => `https://pokeapi.co/api/v2/pokemon/${id3}/`
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
   const pokemonPromisesIII = []
 
   for (let i = 252; i >= 252 && i <= 386; i++) {
-    pokemonPromisesIII.push(fetch(getPokemonIII(i)).then(response => response.json()))
+    pokemonPromisesIII.push(fetch(getPokemon(i)).then(response => response.json()))
   } // multiplos requests
 
   Promise.all(pokemonPromisesIII)
@@ -72,7 +75,7 @@ const fetchPokemonIII = () => {
           <li class="card">
           <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
            <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
-           <p class="poke-type"> ${types.join(' | ')}</p>
+           <p class="poke-type">Type: ${types.join(' | ')}</p>
           </li>`
         return accumulator
       }, '')
@@ -83,14 +86,95 @@ const fetchPokemonIII = () => {
 }
 
 const fetchPokemonIV = () => {
-  const getPokemonIV = id3 => `https://pokeapi.co/api/v2/pokemon/${id3}/`
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
   const pokemonPromisesIV = []
 
   for (let i = 387; i >= 387 && i <= 493; i++) {
-    pokemonPromisesIV.push(fetch(getPokemonIV(i)).then(response => response.json()))
+    pokemonPromisesIV.push(fetch(getPokemon(i)).then(response => response.json()))
   } // multiplos requests
 
   Promise.all(pokemonPromisesIV)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type">Type: ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+const fetchPokemonV = () => {
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
+  const pokemonPromisesV = []
+
+  for (let i = 494; i >= 494 && i <= 649; i++) {
+    pokemonPromisesV.push(fetch(getPokemon(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesV)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type">Type: ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+const fetchPokemonVI = () => {
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
+  const pokemonPromisesVI = []
+
+  for (let i = 650; i >= 650 && i <= 721; i++) {
+    pokemonPromisesVI.push(fetch(getPokemon(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesVI)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type"> Type: ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+const fetchPokemonVII = () => {
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
+  const pokemonPromisesVII = []
+
+  for (let i = 722; i >= 722 && i <= 809; i++) {
+    pokemonPromisesVII.push(fetch(getPokemon(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesVII)
     .then(pokemons => {
   
       const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
@@ -109,8 +193,56 @@ const fetchPokemonIV = () => {
     })
 }
 
+const fetchPokemonVIII = () => {
+  const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
+  const pokemonPromisesVIII = []
 
+  for (let i = 810; i >= 810 && i <= 898; i++) {
+    pokemonPromisesVIII.push(fetch(getPokemon(i)).then(response => response.json()))
+  } // multiplos requests
 
+  Promise.all(pokemonPromisesVIII)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type"> ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+function requestPokeInfo(url, name) {
+  fetch(url + name)
+    .then(response => response.json())
+    .then(data => {
+      pokemon = data;
+    })
+    .catch(err => console.log(err));
+}
+
+function searchPokemon(pokeSearch) {
+  requestPokeInfo(url, pokeSearch);
+
+  setTimeout(function () {
+    container.innerHTML = createCard();
+  }, 1000);
+}
+
+searchButton.addEventListener('click', event => {
+  event.preventDefault();
+  pokeSearch = document.querySelector('search-camp').value.toLowerCase();
+  searchPokemon(pokeSearch);
+
+});
 
 
 

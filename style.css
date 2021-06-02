@@ -1,4 +1,6 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
   font-weight: bold;
@@ -10,27 +12,70 @@ body {
   text-align: center;
 }
 
+.pokemon-logo {
+  margin: 15px;
+}
+
 .topnav {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-top: 1%;
   background-color: lightgray;
   overflow: hidden;
 }
 
+.topnav h3 {
+  margin: 5px;
+}
+
 .topnav a {
-  float: left;
+  width: 40px;
+  margin-bottom: 10px;
+  display: inline-block;
   color: #000;
   text-align: center;
-  padding: 14px 16px;
+  padding: 6px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
+  border: 1px solid black;
 }
 
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
+
+.topnav a:focus{
+  background: #bdc3c7;
+  background: linear-gradient(to right, #4f5a64, #bdc3c7);
+  color: lightgray;
+}
+
+
+.topnav input[type=search] {
+  border: none;
+  outline: none;
+  padding: 6px;
+  font-size: 14px;
+  background: #bdc3c7;
+  width: 70px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  font-weight: normal;
+  margin-bottom: 5px;
+  border-radius: 0px 5px 5px 0;
+}
+
+input[type=search]:focus {
+  width: 160px;
+}
+
+.search-icon {
+  padding: 5px;
+  background: white;
+  border-radius: 5px  0 0 5px;
+  cursor: pointer;
+}
+
 
 .container {
   text-align: center;
@@ -42,7 +87,8 @@ body {
   padding: 13px;
   max-width: 220px;
   width: 100%;
-  background-color: lightgrey;
+  background: #bdc3c7;
+  background: linear-gradient(to right, #4f5a64, #bdc3c7);
   border-radius: 10px;
   box-shadow: 3px 3px 3px black;
   margin: 15px;
@@ -51,11 +97,11 @@ body {
 .poke-pic {
   margin: auto 0;
   width: 100%;
-  
+
   max-width: 180px;
   object-fit: contain;
 }
 
-.poke-name{
+.poke-name {
   margin: 10px;
 }
