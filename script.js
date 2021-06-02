@@ -1,4 +1,4 @@
-const fetchPokemon = () => {
+const fetchPokemonI = () => {
   const getPokemon = id => `https://pokeapi.co/api/v2/pokemon/${id}/`
   const pokemonPromises = []
 
@@ -14,7 +14,7 @@ const fetchPokemon = () => {
         accumulator += `
           <li class="card">
           <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
-           <h2 class="poke-name"> ${pokemon.id}. ${pokemon.name}</h2>
+           <h2 class="poke-name">Nº${pokemon.id}. ${pokemon.name}</h2>
            <p class="poke-type"> ${types.join(' | ')}</p>
           </li>`
         return accumulator
@@ -24,7 +24,91 @@ const fetchPokemon = () => {
       ul.innerHTML = lisPokemons
     })
 }
-fetchPokemon()
+
+fetchPokemonI()
+
+
+const fetchPokemonII = () => {
+  const getPokemonII = id2 => `https://pokeapi.co/api/v2/pokemon/${id2}/`
+  const pokemonPromisesII = []
+
+  for (let i = 152; i >= 152 && i <= 251; i++) {
+    pokemonPromisesII.push(fetch(getPokemonII(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesII)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type"> ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+const fetchPokemonIII = () => {
+  const getPokemonIII = id3 => `https://pokeapi.co/api/v2/pokemon/${id3}/`
+  const pokemonPromisesIII = []
+
+  for (let i = 252; i >= 252 && i <= 386; i++) {
+    pokemonPromisesIII.push(fetch(getPokemonIII(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesIII)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type"> ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
+const fetchPokemonIV = () => {
+  const getPokemonIV = id3 => `https://pokeapi.co/api/v2/pokemon/${id3}/`
+  const pokemonPromisesIV = []
+
+  for (let i = 387; i >= 387 && i <= 493; i++) {
+    pokemonPromisesIV.push(fetch(getPokemonIV(i)).then(response => response.json()))
+  } // multiplos requests
+
+  Promise.all(pokemonPromisesIV)
+    .then(pokemons => {
+  
+      const lisPokemons = pokemons.reduce((accumulator, pokemon) => { //redução de array em uma string
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+          <li class="card">
+          <img class="poke-pic" ${types[0]} alt="${pokemon.name}" src="http://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"}
+           <h2 class="poke-name"> Nº${pokemon.id}. ${pokemon.name}</h2>
+           <p class="poke-type"> ${types.join(' | ')}</p>
+          </li>`
+        return accumulator
+      }, '')
+
+      const ul = document.querySelector('[data-js="pokedex"]')
+      ul.innerHTML = lisPokemons
+    })
+}
+
 
 
 

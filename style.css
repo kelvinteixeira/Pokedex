@@ -32,16 +32,13 @@ body {
   color: black;
 }
 
-.contain {
+.container {
   text-align: center;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: inline-block;
 }
 
 .card {
+  display: inline-block;
   padding: 13px;
   max-width: 220px;
   width: 100%;
